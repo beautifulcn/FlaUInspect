@@ -1,5 +1,6 @@
 using FlaUInspect.Core;
 using FlaUInspect.Settings;
+using FlaUInspect.Properties;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FlaUInspect.ViewModels;
@@ -21,9 +22,9 @@ public class SettingsViewModel : ObservableObject, IDialogViewModel, ISettingVie
 
 	public void Save() => _settingsService.Save(Settings.Current);
 
-	public string Title { get; } = "Settings";
-	public string CloseButtonText { get; } = "Close";
-	public string SaveButtonText { get; } = "Save";
+	public string Title { get; } = Resources.Settings;
+	public string CloseButtonText { get; } = Resources.Close;
+	public string SaveButtonText { get; } = Resources.Save;
 	public bool IsSaveVisible { get; } = true;
 	public bool IsCloseVisible { get; } = true;
 
