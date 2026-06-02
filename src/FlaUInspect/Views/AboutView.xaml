@@ -1,4 +1,4 @@
-<UserControl x:Class="FlaUInspect.Views.AboutView"
+<UserControl xmlns:p="clr-namespace:FlaUInspect.Properties" x:Class="FlaUInspect.Views.AboutView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -63,9 +63,9 @@
                         BorderThickness="0,1,0,0" />
                 <TextBlock Margin="0,0,0,20"
                            FontSize="14"
-                           Text="Version 3.0.0" />
+                           Text="{Binding Source={x:Static p:Resources.Version}, StringFormat='{}{0} 3.0.0'}" />
                 <TextBlock Margin="0,0,0,10"
-                           Text="FlaUInspect is a UI inspection tool built on top of FlaUI."
+                           Text="{x:Static p:Resources.AppDescription}"
                            TextWrapping="Wrap" />
             </StackPanel>
             <StackPanel HorizontalAlignment="Right"
@@ -79,7 +79,7 @@
                 <TextBlock Margin="0,8,0,0"
                            HorizontalAlignment="Right"
                            FontSize="14"
-                           Text="copyright FlaUI, 2026" />
+                           Text="{Binding Source={x:Static p:Resources.Copyright}, StringFormat='{}{0} FlaUI, 2026'}" />
             </StackPanel>
         </Grid>
     </Grid>

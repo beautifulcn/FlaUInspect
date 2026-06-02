@@ -1,4 +1,4 @@
-<Window x:Class="FlaUInspect.Views.StartupWindow"
+<Window xmlns:p="clr-namespace:FlaUInspect.Properties" x:Class="FlaUInspect.Views.StartupWindow"
 		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:converters="clr-namespace:FlaUInspect.Core.Converters"
@@ -46,18 +46,18 @@
 								Padding="4"
 								HorizontalAlignment="Left"
 								Command="{Binding SettingCommand}"
-								Content="Settings" />
+								Content="{x:Static p:Resources.Settings}" />
 						<Button Margin="8"
 								Padding="4"
 								HorizontalAlignment="Left"
 								Command="{Binding AboutCommand}"
-								Content="About" />
+								Content="{x:Static p:Resources.About}" />
 					</StackPanel>
 					<Button Margin="8"
 							Padding="4"
 							HorizontalAlignment="Right"
 							Click="CloseClick"
-							Content="Close" />
+							Content="{x:Static p:Resources.Close}" />
 				</Grid>
 			</StackPanel>
 			<Grid IsEnabled="{Binding IsBusy, Converter={StaticResource InvertBooleanConverter}}">
@@ -72,7 +72,7 @@
 					<Button Width="128"
 							HorizontalAlignment="Left"
 							Command="{Binding PickCommand}"
-							Content="Find window"
+							Content="{x:Static p:Resources.FindWindow}"
 							DockPanel.Dock="Top"
 							PreviewMouseDown="PickWindowButton_PreviewMouseDown" />
 					<Border Height="1"
@@ -86,7 +86,7 @@
 							<TextBlock VerticalAlignment="Center"
 									   DockPanel.Dock="Left"
 									   Foreground="{DynamicResource TextBrush}"
-									   Text="Filter : " />
+									   Text="{x:Static p:Resources.Filter}" />
 							<TextBox Height="24"
 									 Margin="8,0,0,0"
 									 Text="{Binding FilterProcess, UpdateSourceTrigger=PropertyChanged}" />
@@ -94,19 +94,19 @@
 						<Grid DockPanel.Dock="Bottom">
 							<CheckBox HorizontalAlignment="Left"
 									  VerticalAlignment="Center"
-									  Content="Windowed only application"
+									  Content="{x:Static p:Resources.WindowedOnly}"
 									  IsChecked="{Binding IsWindowedOnly}" />
 							<Button Margin="4"
 									Padding="4"
 									HorizontalAlignment="Right"
 									Command="{Binding RefreshCommand}"
-									Content="Refresh" />
+									Content="{x:Static p:Resources.Refresh}" />
 						</Grid>
 						<Border Height="1"
 								Background="{DynamicResource PrimaryBorderBrush}"
 								DockPanel.Dock="Bottom" />
 						<Grid DockPanel.Dock="Bottom">
-							<TextBlock Text="Double click to open by selected UIA." />
+							<TextBlock Text="{x:Static p:Resources.DoubleClickToOpen}" />
 						</Grid>
 						<Grid>
 							<ListBox x:Name="ProcessesListBox"
@@ -127,7 +127,7 @@
 							</ListBox>
 							<TextBlock HorizontalAlignment="Center"
 									   VerticalAlignment="Center"
-									   Text="Loading ..."
+									   Text="{x:Static p:Resources.Loading}"
 									   Visibility="{Binding Processes.Count, Converter={StaticResource IntToVisibilityConverter}, ConverterParameter=EqualsZero}" />
 						</Grid>
 					</DockPanel>
@@ -192,8 +192,8 @@
 						</Button>
 					</DockPanel>
 
-					<CheckBox x:Name="ControlTreeViewWalkerCheckBox" Content="Control Walker" IsChecked="True">
-						<CheckBox.ToolTip>Uncheck for raw TreeWalker</CheckBox.ToolTip>
+					<CheckBox x:Name="ControlTreeViewWalkerCheckBox" Content="{x:Static p:Resources.ControlWalker}" IsChecked="True">
+						<CheckBox.ToolTip>{x:Static p:Resources.ControlWalkerToolTip}</CheckBox.ToolTip>
 					</CheckBox>
 				</StackPanel>
 			</Grid>

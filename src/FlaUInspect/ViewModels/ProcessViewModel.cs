@@ -1,3 +1,4 @@
+using FlaUInspect.Properties;
 using System.Collections.ObjectModel;
 using System.Drawing.Imaging;
 using System.Runtime.CompilerServices;
@@ -47,8 +48,8 @@ public class ProcessViewModel : ObservableObject {
 
 		_trackHighlighterOverlay = CreateTrackHighlighterOverlay();
 
-		WindowTitle = $"Process: [{processId}] '{(processId != 0
-			? _automation.FromHandle(mainWindowHandle)?.Properties.Name ?? "N/A"
+		WindowTitle = $"{Resources.Process}: [{processId}] '{(processId != 0
+			? _automation.FromHandle(mainWindowHandle)?.Properties.Name ?? Resources.NA
 			: "Desktop")}'";
 
 		HoverManager.AddListener(_windowHandle,
@@ -67,7 +68,7 @@ public class ProcessViewModel : ObservableObject {
 
 			var capturedImage = SelectedItem.AutomationElement.Capture();
 			SaveFileDialog saveDialog = new() {
-				Filter = "Png file (*.png)|*.png"
+				Filter = Resources.PngFiles
 			};
 
 			if (saveDialog.ShowDialog() == true)
