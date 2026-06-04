@@ -25,11 +25,11 @@ public class ProcessViewModel : ObservableObject {
 	private readonly ITreeWalker _treeWalker;
 	private readonly IntPtr _windowHandle;
 	private FocusTrackingMode? _focusTrackingMode;
-	private ElementOverlay _trackHighlighterOverlay;
-	private static readonly ElementPatternItem[] _defaultPatternItems = [
-																		new ElementPatternItem("Identification", PatternItemsFactory.Identification, true, true),
-																	new ElementPatternItem("Details", PatternItemsFactory.Details, true, true),
-																	new ElementPatternItem("Pattern Support", PatternItemsFactory.PatternSupport, true, true)
+	private ElementOverlay? _trackHighlighterOverlay;
+	private static ElementPatternItem[] _defaultPatternItems => [
+																		new ElementPatternItem(Resources.Identification, PatternItemsFactory.Identification, true, true),
+																	new ElementPatternItem(Resources.Details, PatternItemsFactory.Details, true, true),
+																	new ElementPatternItem(Resources.PatternSupport, PatternItemsFactory.PatternSupport, true, true)
 																	];
 
 	public ProcessViewModel(AutomationBase automation, int processId, IntPtr mainWindowHandle, InternalLogger logger, bool controlWalker = true) : this(automation, processId, mainWindowHandle, logger, controlWalker ? automation.TreeWalkerFactory.GetControlViewWalker() : automation.TreeWalkerFactory.GetRawViewWalker()) { }
@@ -50,7 +50,7 @@ public class ProcessViewModel : ObservableObject {
 
 		WindowTitle = $"{Resources.Process}: [{processId}] '{(processId != 0
 			? _automation.FromHandle(mainWindowHandle)?.Properties.Name ?? Resources.NA
-			: "Desktop")}'";
+			: Resources.Desktop)}'";
 
 		HoverManager.AddListener(_windowHandle,
 								 x => {
@@ -184,6 +184,7 @@ public class ProcessViewModel : ObservableObject {
 	private void TrackSelectedItem(ElementViewModel? item) {
 		if (item is null || item.Level <= 0) {
 			_trackHighlighterOverlay?.Dispose();
+			_trackHighlighterOverlay = null;
 			return;
 		}
 
@@ -194,10 +195,17 @@ public class ProcessViewModel : ObservableObject {
 		_trackHighlighterOverlay = CreateTrackHighlighterOverlay();
 
 		try {
-			_trackHighlighterOverlay.Show(item.AutomationElement.Properties.BoundingRectangle.Value);
+			if (item.AutomationElement.Properties.BoundingRectangle.TryGetValue(out var rect)) {
+				_trackHighlighterOverlay?.Show(rect);
+			}
+			else {
+				_trackHighlighterOverlay?.Dispose();
+				_trackHighlighterOverlay = null;
+			}
 		}
 		catch (Exception) {
 			_trackHighlighterOverlay?.Dispose();
+			_trackHighlighterOverlay = null;
 		}
 	}
 

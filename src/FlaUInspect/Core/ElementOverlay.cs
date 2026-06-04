@@ -51,7 +51,7 @@ public partial class ElementOverlay(ElementOverlayConfiguration configuration) :
 		_overlayRectangleFormList = [.. rectangleForms];
 	}
 
-	[LibraryImport("user32.dll", SetLastError = true)]
+	[LibraryImport("user32.dll", EntryPoint = "SetWindowPos", SetLastError = true)]
 	[return: MarshalAs(UnmanagedType.Bool)]
 	private static partial bool SetWindowPos(
 		IntPtr hWnd,
@@ -62,7 +62,7 @@ public partial class ElementOverlay(ElementOverlayConfiguration configuration) :
 		int height,
 		int flags);
 
-	[LibraryImport("user32.dll", SetLastError = true)]
+	[LibraryImport("user32.dll", EntryPoint = "ShowWindow", SetLastError = true)]
 	[return: MarshalAs(UnmanagedType.Bool)]
 	private static partial bool ShowWindow(IntPtr hWnd, int nCmdShow);
 }

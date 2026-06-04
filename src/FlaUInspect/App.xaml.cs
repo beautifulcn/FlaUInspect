@@ -33,9 +33,6 @@ public partial class App {
 		Current.MainWindow = startupWindow;
 		startupWindow.Show();
 
-		//Preload light theme
-		SetTheme(flaUiAppSettings);
-
 		await Task.Run(startupViewModel.Init);
 	}
 
@@ -59,8 +56,8 @@ public partial class App {
 	private static void SetTheme(FlaUiAppSettings settings) {
 		ResourceDictionary newTheme = new() {
 			Source = settings.Theme switch {
-				"Dark" => new Uri("/FlaUInspect;component/Themes/DarkTheme.xaml", UriKind.Relative),
-				_ => new Uri("/FlaUInspect;component/Themes/LightTheme.xaml", UriKind.Relative),
+				"Dark" => new Uri("pack://application:,,,/Themes/DarkTheme.xaml"),
+				_ => new Uri("pack://application:,,,/Themes/LightTheme.xaml"),
 			}
 		};
 

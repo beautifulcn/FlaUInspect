@@ -171,14 +171,15 @@ public partial class StartupViewModel : ObservableObject, IDisposable {
 
 				if (_topWindowUnderCursor == null || !_topWindowUnderCursor.Equals(topWindowUnderCursor)) {
 					_topWindowOverlay?.Dispose();
+					_topWindowOverlay = null;
 					try {
-						var boundingRectangleValue = topWindowUnderCursor?.Properties.BoundingRectangle.Value ?? new();
-						_topWindowOverlay = App.FlaUiAppOptions.PickOverlay();
-						_topWindowOverlay?.Show(boundingRectangleValue);
-						_topWindowUnderCursor = topWindowUnderCursor;
+						if (topWindowUnderCursor != null && topWindowUnderCursor.Properties.BoundingRectangle.TryGetValue(out var rect)) {
+							_topWindowOverlay = App.FlaUiAppOptions.PickOverlay();
+							_topWindowOverlay?.Show(rect);
+							_topWindowUnderCursor = topWindowUnderCursor;
 
-						if (topWindowUnderCursor != null)
 							SelectedProcess = Processes.FirstOrDefault(x => x.MainWindowHandle == topWindowUnderCursor.Properties.NativeWindowHandle);
+						}
 					}
 					catch {
 						// Ignore exceptions when getting bounding rectangle
@@ -247,30 +248,30 @@ public partial class StartupViewModel : ObservableObject, IDisposable {
 		AutomationElement[] GetChildren(AutomationElement el) => IsWindowedOnly ? el.FindAllChildren(x => x.ByControlType(ControlType.Window)) : el.FindAllChildren();
 	}
 
-	[LibraryImport("user32.dll")]
+	[LibraryImport("user32.dll", EntryPoint = "GetCursorPos")]
 	[return: MarshalAs(UnmanagedType.Bool)]
 	private static partial bool GetCursorPos(out POINT lpPoint);
 
-	[LibraryImport("user32.dll")]
+	[LibraryImport("user32.dll", EntryPoint = "WindowFromPoint")]
 	private static partial IntPtr WindowFromPoint(POINT point);
 
-	[LibraryImport("user32.dll")]
+	[LibraryImport("user32.dll", EntryPoint = "GetAncestor")]
 	private static partial IntPtr GetAncestor(IntPtr hwnd, uint gaFlags);
 
-	[LibraryImport("user32.dll")]
+	[LibraryImport("user32.dll", EntryPoint = "GetWindowThreadProcessId")]
 	private static partial uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
 
-	[LibraryImport("user32.dll", SetLastError = true)]
+	[LibraryImport("user32.dll", EntryPoint = "SetWindowsHookExW", SetLastError = true)]
 	private static partial IntPtr SetWindowsHookEx(int idHook, LowLevelMouseProc lpfn, IntPtr hMod, uint dwThreadId);
 
-	[LibraryImport("user32.dll", SetLastError = true)]
+	[LibraryImport("user32.dll", EntryPoint = "UnhookWindowsHookEx", SetLastError = true)]
 	[return: MarshalAs(UnmanagedType.Bool)]
 	private static partial bool UnhookWindowsHookEx(IntPtr hhk);
 
-	[LibraryImport("user32.dll")]
+	[LibraryImport("user32.dll", EntryPoint = "CallNextHookEx")]
 	private static partial IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
 
-	[LibraryImport("kernel32.dll", StringMarshalling = StringMarshalling.Utf16)]
+	[LibraryImport("kernel32.dll", EntryPoint = "GetModuleHandleW", StringMarshalling = StringMarshalling.Utf16)]
 	private static partial IntPtr GetModuleHandle(string lpModuleName);
 
 	private delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);

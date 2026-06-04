@@ -126,4 +126,54 @@
     <data name="NA" xml:space="preserve">
         <value>N/A</value>
     </data>
+    <data name="RefreshToolTip" xml:space="preserve">
+        <value>Refresh. Reload the UI Automation tree</value>
+    </data>
+    <data name="HoverModeToolTip" xml:space="preserve">
+        <value>Enable HoverMode (use Ctrl).
+To select control press and hold Ctrl button place mouse cursor over a coltrol.</value>
+    </data>
+    <data name="SelectModeToolTip" xml:space="preserve">
+        <value>Enable Select Mode.
+Highlight selected control.</value>
+    </data>
+    <data name="FocusTrackingToolTip" xml:space="preserve">
+        <value>Focus Tracking.
+The focused control will be selected in tree.</value>
+    </data>
+    <data name="CaptureToolTip" xml:space="preserve">
+        <value>Capture selected item.
+Export to PNG file.</value>
+    </data>
+    <data name="GetStateToolTip" xml:space="preserve">
+        <value>Get current element state.
+Copy state of current element to clipboard.</value>
+    </data>
+    <data name="UIA2" xml:space="preserve">
+        <value>UIA2</value>
+    </data>
+    <data name="UIA3" xml:space="preserve">
+        <value>UIA3</value>
+    </data>
+    <data name="Identification" xml:space="preserve">
+        <value>Identification</value>
+    </data>
+    <data name="PatternSupport" xml:space="preserve">
+        <value>Pattern Support</value>
+    </data>
+    <data name="Yes" xml:space="preserve">
+        <value>Yes</value>
+    </data>
+    <data name="No" xml:space="preserve">
+        <value>No</value>
+    </data>
+    <data name="Mixed" xml:space="preserve">
+        <value>Mixed</value>
+    </data>
+    <data name="NotSupported" xml:space="preserve">
+        <value>Not supported</value>
+    </data>
+    <data name="ErrorList" xml:space="preserve">
+        <value>Error List</value>
+    </data>
 </root>

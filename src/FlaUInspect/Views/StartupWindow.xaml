@@ -165,7 +165,7 @@
 									<ContentControl Content="{StaticResource Uia2Icon}" />
 								</Viewbox>
 								<TextBlock TextAlignment="Center">
-									UIA2<LineBreak />
+									<Run Text="{x:Static p:Resources.UIA2}" /><LineBreak />
 									Uia2Icon</TextBlock>
 							</StackPanel>
 						</Button>
@@ -186,7 +186,7 @@
 									<ContentControl Content="{StaticResource Uia3Icon}" />
 								</Viewbox>
 								<TextBlock TextAlignment="Center">
-									UIA3<LineBreak />
+									<Run Text="{x:Static p:Resources.UIA3}" /><LineBreak />
 									Uia3Icon</TextBlock>
 							</StackPanel>
 						</Button>

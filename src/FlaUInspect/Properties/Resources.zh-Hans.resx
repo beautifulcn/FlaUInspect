@@ -126,4 +126,54 @@
     <data name="NA" xml:space="preserve">
         <value>不适用</value>
     </data>
+    <data name="RefreshToolTip" xml:space="preserve">
+        <value>刷新。重新加载 UI 自动化树</value>
+    </data>
+    <data name="HoverModeToolTip" xml:space="preserve">
+        <value>启用悬停模式（使用 Ctrl）。
+要选择控件，请按住 Ctrl 键并将鼠标光标置于控件上方。</value>
+    </data>
+    <data name="SelectModeToolTip" xml:space="preserve">
+        <value>启用选择模式。
+高亮显示选定的控件。</value>
+    </data>
+    <data name="FocusTrackingToolTip" xml:space="preserve">
+        <value>焦点跟踪。
+焦点所在的控件将在树中被选中。</value>
+    </data>
+    <data name="CaptureToolTip" xml:space="preserve">
+        <value>截取选定项。
+导出为 PNG 文件。</value>
+    </data>
+    <data name="GetStateToolTip" xml:space="preserve">
+        <value>获取当前元素状态。
+将当前元素的状态复制到剪贴板。</value>
+    </data>
+    <data name="UIA2" xml:space="preserve">
+        <value>UIA2</value>
+    </data>
+    <data name="UIA3" xml:space="preserve">
+        <value>UIA3</value>
+    </data>
+    <data name="Identification" xml:space="preserve">
+        <value>识别</value>
+    </data>
+    <data name="PatternSupport" xml:space="preserve">
+        <value>模式支持</value>
+    </data>
+    <data name="Yes" xml:space="preserve">
+        <value>是</value>
+    </data>
+    <data name="No" xml:space="preserve">
+        <value>否</value>
+    </data>
+    <data name="Mixed" xml:space="preserve">
+        <value>混合</value>
+    </data>
+    <data name="NotSupported" xml:space="preserve">
+        <value>不支持</value>
+    </data>
+    <data name="ErrorList" xml:space="preserve">
+        <value>错误列表</value>
+    </data>
 </root>

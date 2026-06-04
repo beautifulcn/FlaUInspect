@@ -393,5 +393,140 @@ namespace FlaUInspect.Properties {
                 return ResourceManager.GetString("NA", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to RefreshToolTip.
+        /// </summary>
+        public static string RefreshToolTip {
+            get {
+                return ResourceManager.GetString("RefreshToolTip", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to HoverModeToolTip.
+        /// </summary>
+        public static string HoverModeToolTip {
+            get {
+                return ResourceManager.GetString("HoverModeToolTip", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to SelectModeToolTip.
+        /// </summary>
+        public static string SelectModeToolTip {
+            get {
+                return ResourceManager.GetString("SelectModeToolTip", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to FocusTrackingToolTip.
+        /// </summary>
+        public static string FocusTrackingToolTip {
+            get {
+                return ResourceManager.GetString("FocusTrackingToolTip", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to CaptureToolTip.
+        /// </summary>
+        public static string CaptureToolTip {
+            get {
+                return ResourceManager.GetString("CaptureToolTip", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to GetStateToolTip.
+        /// </summary>
+        public static string GetStateToolTip {
+            get {
+                return ResourceManager.GetString("GetStateToolTip", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to UIA2.
+        /// </summary>
+        public static string UIA2 {
+            get {
+                return ResourceManager.GetString("UIA2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to UIA3.
+        /// </summary>
+        public static string UIA3 {
+            get {
+                return ResourceManager.GetString("UIA3", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Identification.
+        /// </summary>
+        public static string Identification {
+            get {
+                return ResourceManager.GetString("Identification", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to PatternSupport.
+        /// </summary>
+        public static string PatternSupport {
+            get {
+                return ResourceManager.GetString("PatternSupport", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Mixed.
+        /// </summary>
+        public static string Mixed {
+            get {
+                return ResourceManager.GetString("Mixed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to NotSupported.
+        /// </summary>
+        public static string NotSupported {
+            get {
+                return ResourceManager.GetString("NotSupported", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to ErrorList.
+        /// </summary>
+        public static string ErrorList {
+            get {
+                return ResourceManager.GetString("ErrorList", resourceCulture);
+            }
+        }
     }
 }

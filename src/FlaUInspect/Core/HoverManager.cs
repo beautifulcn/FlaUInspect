@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Windows.Input;
 using System.Windows.Threading;
 using FlaUI.Core;
@@ -63,8 +64,14 @@ public static class HoverManager {
 			try {
 				if (_elementOverlayFunc != null && _enabledListeners.Count > 0) {
 					var elementOverlay = _elementOverlayFunc();
-					elementOverlay?.Show(automationElement.Properties.BoundingRectangle.Value);
-					_elementOverlay = elementOverlay;
+					if (automationElement.Properties.BoundingRectangle.TryGetValue(out var rect)) {
+						elementOverlay?.Show(rect);
+						_elementOverlay = elementOverlay;
+					}
+					else {
+						elementOverlay?.Dispose();
+						_elementOverlay = null;
+					}
 				}
 			}
 			catch {

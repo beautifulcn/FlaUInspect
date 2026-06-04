@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+        <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
+        <LangVersion>preview</LangVersion>
         <UseWPF>true</UseWPF>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -26,13 +27,29 @@
         <AssemblyName>FlaUInspect</AssemblyName>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <DebugType>none</DebugType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <DebugType>none</DebugType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UIA3|AnyCPU'">
+      <DebugType>none</DebugType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UIA2|AnyCPU'">
+      <DebugType>none</DebugType>
+    </PropertyGroup>
+
     <ItemGroup>
         <PackageReference Include="FlaUI.Core" Version="5.0.0" />
         <PackageReference Include="FlaUI.UIA2" Version="5.0.0" />
         <PackageReference Include="FlaUI.UIA3" Version="5.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.1" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.1" />
-        <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.8" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.8" />
+        <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.8" />
     </ItemGroup>
 
     <ItemGroup>

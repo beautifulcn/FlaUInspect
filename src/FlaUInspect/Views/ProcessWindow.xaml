@@ -108,7 +108,7 @@
 
 			<Button Command="{Binding RefreshCommand}"
 					Style="{StaticResource RibbonButtonStyle}"
-					ToolTip="Refresh. Reload the UI Automation tree">
+					ToolTip="{x:Static p:Resources.RefreshToolTip}">
 				<Viewbox Style="{StaticResource ViewBoxStyle}">
 					<ContentControl Content="{StaticResource RefreshIcon}" />
 				</Viewbox>
@@ -120,12 +120,8 @@
 
 			<ToggleButton
 						 IsChecked="{Binding EnableHoverMode}"
-						  Style="{StaticResource ProcessRibbonCheckButtonStyle}">
-				<ButtonBase.ToolTip>
-					<TextBlock>
-						Enable HoverMode (use Ctrl).<LineBreak />
-						To select control press and hold Ctrl button place mouse cursor over a coltrol.</TextBlock>
-				</ButtonBase.ToolTip>
+						  Style="{StaticResource ProcessRibbonCheckButtonStyle}"
+						  ToolTip="{x:Static p:Resources.HoverModeToolTip}">
 				<Viewbox Style="{StaticResource ViewBoxStyle}">
 					<ContentControl Content="{StaticResource HighLightSelectionModeIcon}" />
 				</Viewbox>
@@ -133,24 +129,16 @@
 
 			<ToggleButton
 						 IsChecked="{Binding EnableHighLightSelectionMode}"
-						  Style="{StaticResource ProcessRibbonCheckButtonStyle}">
-				<ButtonBase.ToolTip>
-					<TextBlock>
-						Enable Select Mode.<LineBreak />
-						Highlight selected control.</TextBlock>
-				</ButtonBase.ToolTip>
+						  Style="{StaticResource ProcessRibbonCheckButtonStyle}"
+						  ToolTip="{x:Static p:Resources.SelectModeToolTip}">
 				<Viewbox Style="{StaticResource ViewBoxStyle}">
 					<ContentControl Content="{StaticResource EnableHoverModeIcon}" />
 				</Viewbox>
 			</ToggleButton>
 			<ToggleButton
 						 IsChecked="{Binding EnableFocusTrackingMode}"
-						  Style="{StaticResource ProcessRibbonCheckButtonStyle}">
-				<ButtonBase.ToolTip>
-					<TextBlock>
-						Focus Tracking.<LineBreak />
-						The focused control will be selected in tree.</TextBlock>
-				</ButtonBase.ToolTip>
+						  Style="{StaticResource ProcessRibbonCheckButtonStyle}"
+						  ToolTip="{x:Static p:Resources.FocusTrackingToolTip}">
 				<Viewbox Style="{StaticResource ViewBoxStyle}">
 					<ContentControl Content="{StaticResource EnableFocusTrackingModeIcon}" />
 				</Viewbox>
@@ -161,12 +149,8 @@
 					BorderBrush="Transparent" />
 
 			<Button Command="{Binding CaptureSelectedItemCommand}"
-					Style="{StaticResource RibbonButtonStyle}">
-				<ButtonBase.ToolTip>
-					<TextBlock>
-						Capture selected item.<LineBreak />
-						Export to PNG file.</TextBlock>
-				</ButtonBase.ToolTip>
+					Style="{StaticResource RibbonButtonStyle}"
+					ToolTip="{x:Static p:Resources.CaptureToolTip}">
 				<Viewbox>
 					<ContentControl Content="{StaticResource CaptureSelectedItemIcon}" />
 				</Viewbox>
@@ -174,12 +158,8 @@
 
 			<Grid>
 				<Button Command="{Binding CurrentElementSaveStateCommand}"
-						Style="{StaticResource RibbonButtonStyle}">
-					<ButtonBase.ToolTip>
-						<TextBlock>
-							Get current element state.<LineBreak />
-							Copy state of current element to clipboard.</TextBlock>
-					</ButtonBase.ToolTip>
+						Style="{StaticResource RibbonButtonStyle}"
+						ToolTip="{x:Static p:Resources.GetStateToolTip}">
 					<Viewbox>
 						<ContentControl Content="{StaticResource GetStateIcon}" />
 					</Viewbox>
@@ -380,7 +360,7 @@
 																					   TargetType="{x:Type TextBox}">
 																					<Style.Triggers>
 																						<DataTrigger Binding="{Binding Value}"
-																									 Value="Yes">
+																									 Value="{x:Static p:Resources.Yes}">
 																							<Setter Property="FontWeight" Value="Bold" />
 																						</DataTrigger>
 																					</Style.Triggers>
@@ -397,7 +377,7 @@
 																					   TargetType="{x:Type TextBox}">
 																					<Style.Triggers>
 																						<DataTrigger Binding="{Binding Value}"
-																									 Value="Yes">
+																									 Value="{x:Static p:Resources.Yes}">
 																							<Setter Property="TextBox.Foreground" Value="Green" />
 																							<Setter Property="FontWeight" Value="Bold" />
 																						</DataTrigger>

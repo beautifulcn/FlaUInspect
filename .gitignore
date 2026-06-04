@@ -13,3 +13,4 @@ artifacts/
 src/.idea/
 *.user
 desktop.ini
+/.idea/

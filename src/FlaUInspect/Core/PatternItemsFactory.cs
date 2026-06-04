@@ -9,6 +9,7 @@ using FlaUI.UIA3;
 using FlaUI.UIA3.Identifiers;
 using FlaUI.UIA3.Patterns;
 using FlaUInspect.ViewModels;
+using FlaUInspect.Properties;
 using GridItemPattern = FlaUI.UIA2.Patterns.GridItemPattern;
 using GridPattern = FlaUI.UIA2.Patterns.GridPattern;
 using RangeValuePattern = FlaUI.UIA2.Patterns.RangeValuePattern;
@@ -86,7 +87,7 @@ public class PatternItemsFactory(AutomationBase? automationBase) {
 		var allPatterns = element.Automation.PatternLibrary.AllForCurrentFramework;
 
 		foreach (var pattern in allPatterns)
-			yield return new PatternItem(pattern.Name, allSupportedPatterns.Any(x => x.Name == pattern.Name) ? "Yes" : "No");
+			yield return new PatternItem(pattern.Name, allSupportedPatterns.Any(x => x.Name == pattern.Name) ? Resources.Yes : Resources.No);
 	}
 
 	private static IEnumerable<PatternItem> AddValuePatternDetails(AutomationElement element) {
@@ -231,7 +232,7 @@ public class PatternItemsFactory(AutomationBase? automationBase) {
 		yield return PatternItem.FromAutomationProperty("IsPassword", element.Properties.IsPassword);
 		// Special handling for NativeWindowHandle
 		var nativeWindowHandle = element.Properties.NativeWindowHandle.ValueOrDefault;
-		var nativeWindowHandleString = nativeWindowHandle != 0 ? string.Format(CultureInfo.InvariantCulture, "{0} ({0:X8})", nativeWindowHandle.ToInt32()) : "Not Supported";
+		var nativeWindowHandleString = nativeWindowHandle != 0 ? string.Format(CultureInfo.InvariantCulture, "{0} ({0:X8})", nativeWindowHandle.ToInt32()) : Resources.NotSupported;
 
 		yield return new PatternItem("NativeWindowHandle", nativeWindowHandleString);
 	}
@@ -287,10 +288,10 @@ public class PatternItemsFactory(AutomationBase? automationBase) {
 		var value = pattern.DocumentRange.GetAttributeValue(textAttribute);
 
 		if (value == mixedValue)
-			return "Mixed";
+			return Resources.Mixed;
 
 		if (value == element.Automation.NotSupportedValue)
-			return "Not supported";
+			return Resources.NotSupported;
 
 		try {
 			return func((T)value);
