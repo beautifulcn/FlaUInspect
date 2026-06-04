@@ -1,16 +1,36 @@
 # Build Results
-bin/
-obj/
+[Bb]in/
+[Oo]bj/
+[Aa]rtifacts/
+[Dd]ebug/
+[Rr]elease/
+
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.vshost.exe
+*.vshost.exe.config
+*.vshost.exe.manifest
+
+# JetBrains / IntelliJ
+.idea/
+src/.idea/
+*.sln.iml
+*.DotSettings.user
 
 # Cake Build
 .chocoapikey
+tools/
+!tools/packages.config
 
-# Visual Studio cache/options directory
-.vs/
-
-# Artifacts
-artifacts/
-src/.idea/
-*.user
+# OS generated files
 desktop.ini
-/.idea/
+[Tt]humbs.db
+.DS_Store
+
+# Miscellaneous
+*.sublime-project
+*.sublime-workspace

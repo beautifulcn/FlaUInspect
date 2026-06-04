@@ -1,4 +1,3 @@
-using System.Threading;
 using System.Windows.Input;
 using System.Windows.Threading;
 using FlaUI.Core;
@@ -17,7 +16,7 @@ public static class HoverManager {
 
 	private static readonly HashSet<IntPtr> _enabledListeners = [];
 
-	private static readonly Lock _lockObject = new();
+	private static readonly object _lockObject = new();
 
 	static HoverManager() {
 		DispatcherTimer timer = new() {

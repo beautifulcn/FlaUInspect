@@ -212,6 +212,7 @@ public class ProcessViewModel : ObservableObject {
 	private void SetMode() {
 		HoverManager.Disable(_windowHandle);
 		_trackHighlighterOverlay?.Dispose();
+		_trackHighlighterOverlay = null;
 		_focusTrackingMode?.Stop();
 
 		if (EnableFocusTrackingMode)
